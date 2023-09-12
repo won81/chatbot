@@ -49,11 +49,6 @@ with HuggingFaceTab:
         st.session_state.user_inputs.append(user_input)
         st.session_state.generated_responses.append(output['generated_text'])
 
-    if st.session_state['generated_responses']:
-        for i in range(0, len(st.session_state['generated_responses']), 1):
-            message(st.session_state['user_inputs'][i], is_user = True, key=str(i) + '_huggineface_user')
-            message(st.session_state['generated_responses'][i], key=str(i) + '_huggingface')
-
 with GoogleBardTab:
     if 'generated_responses' not in st.session_state:
         st.session_state['generated_responses'] = []
@@ -97,9 +92,9 @@ with GoogleBardTab:
         st.session_state.user_inputs.append(user_input)
         st.session_state.generated_responses.append(output['content'])
 
-    if st.session_state['generated_responses']:
-        for i in range(0, len(st.session_state['generated_responses']), 1):
-            message(st.session_state['user_inputs'][i], is_user = True, key=str(len(st.session_state['generated_responses'])) + '_' + str(i) + '_google_bard_user')
-            message(st.session_state['generated_responses'][i], key=str(len(st.session_state['generated_responses'])) + '_' + str(i) + '_google_bard')
+if st.session_state['generated_responses']:
+    for i in range(0, len(st.session_state['generated_responses']), 1):
+        message(st.session_state['user_inputs'][i], is_user = True, key=str(i) + '_user')
+        message(st.session_state['generated_responses'][i], key=str(i))
 
 
