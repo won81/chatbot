@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_chat import message
 
 st.header('Hugging Face Chatbot')
+st.write("check out this [link](https://wide-shallow.tistory.com/entry/Streamlit%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Chatbot-%EB%A7%8C%EB%93%A4%EA%B8%B0)")
 
 if 'generated_responses' not in st.session_state:
     st.session_state['generated_responses'] = []
